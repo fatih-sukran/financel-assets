@@ -15,7 +15,8 @@ let bitcoin = Currency(id: UUID(), name: "Bitcoin", price: 29800, amount: 0.067,
 let etherium = Currency(id: UUID(), name: "Etherium", price: 1890, amount: 0.095, symbol: "ETH")
 
 let assets = [tl, dolar, altın, bitcoin, etherium]
-
+ 
+ 
 struct SwiftUIView: View {
     var body: some View {
     
