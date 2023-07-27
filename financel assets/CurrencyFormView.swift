@@ -1,66 +1,57 @@
 import SwiftUI
 
-class TodoItem: Identifiable, ObservableObject {
-    let id = UUID()
-    @Published var title: String
-
-    init(title: String) {
-        self.title = title
-    }
-}
-
 struct CurrencyFormView: View {
-    @ObservedObject var viewModel: CurrencyFormViewModel
+    @StateObject private var db = Database()
 
     var body: some View {
-        VStack {
-            EditableList(data: $viewModel.items) { item in
-                TextField("Name: ", text: item.title) // Use $ to pass the binding
+        NavigationView {
+            List {
+                Section {
+                    ForEach(db.currencies) { currency in
+                        Text(currency.name)
+                    }
+                }
+            }
+            .navigationTitle("Currency Form")
+        }
+    }
+}
+
+struct AddCurrencyFormView: View {
+    @StateObject private var db = Database()
+    
+    @State private var name: String = ""
+    @State private var symbol: String = ""
+    
+    
+    var body: some View {
+        Form {
+            Section {
+                TextField("Currency Name", text: $name)
+                TextField("Currency Symbol", text: $symbol)
+            }
+            
+            Section {
+                Button("Add") {
+                    let currency = Currency(name: name, symbol: symbol)
+                    db.currencies.append(currency)
+                    db.save()
+                    
+                    name = ""
+                    symbol = ""
+                }
             }
         }
     }
 }
 
-class CurrencyFormViewModel: ObservableObject {
-    @Published var items: [TodoItem] = []
 
-    init(items: [TodoItem]) {
-        self.items = items
-    }
-}
-
-struct EditableList<Data: RandomAccessCollection & MutableCollection, Content: View>: View where Data.Element: Identifiable {
-    @Binding var data: Data
-    var content: (Binding<Data.Element>) -> Content
-
-    init(data: Binding<Data>, content: @escaping (Binding<Data.Element>) -> Content) {
-        self._data = data
-        self.content = content
-    }
-
-    var body: some View {
-        List {
-            ForEach($data) { item in // Use $ to pass the binding
-                content(item) // Use $ to pass the binding
-            }
-            .onMove { indexSet, offset in
-                data.move(fromOffsets: indexSet, toOffset: offset)
-            }
-            .onDelete { indexSet in
-//                $data.remove(atOffsets: indexSet)
-            }
-        }
-        .toolbar { EditButton() }
-    }
-}
 
 struct CurrencyFormView_Previews: PreviewProvider {
     static var previews: some View {
-        var items = [
-            TodoItem(title: "abc"),
-            TodoItem(title: "def"),
-            TodoItem(title: "ghi")
-        ]
-        CurrencyFormView(viewModel: CurrencyFormViewModel(items: items))
+        VStack {
+            CurrencyFormView()
+            AddCurrencyFormView()
+        }
     }
 }

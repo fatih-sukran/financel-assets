@@ -66,9 +66,9 @@ class DataManager {
 
 @MainActor
 class Database: ObservableObject {
-    @Published var currencies: [Currency]
-    @Published var datas: [DataEntry]
-    @Published var prices: [Price]
+    @Published var currencies: [Currency] = []
+    @Published var datas: [DataEntry] = []
+    @Published var prices: [Price] = []
     
     init() {
         let dataManager = DataManager()

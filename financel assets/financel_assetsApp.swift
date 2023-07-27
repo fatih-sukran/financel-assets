@@ -16,16 +16,16 @@ struct financel_assetsApp: App {
                         .tabItem {
                             Label("Menu", systemImage: "list.dash")
                         }
+                
                     SwiftUIView()
                     .tabItem {
                         Label("Menu", systemImage: "list.dash")
                     }
-                    var items = [
-                        TodoItem(title: "abc"),
-                        TodoItem(title: "def"),
-                        TodoItem(title: "ghi")
-                    ]
-                    CurrencyFormView(viewModel: CurrencyFormViewModel(items: items))
+                
+                    VStack {
+                        CurrencyFormView()
+                        AddCurrencyFormView()
+                    }
                     .tabItem {
                         Label("Menu", systemImage: "list.dash")
                     }
