@@ -3,52 +3,80 @@ import Foundation
 struct Currency: Identifiable, Codable {
     var id = UUID()
     var name: String
-    var price: Double
-    var amount: Double
     var symbol: String
 }
 
-struct AssetData: Identifiable, Codable {
+struct DataEntry: Identifiable, Codable {
     var id = UUID()
-    var tl: Currency
-    var dolar: Currency
-    var altin: Currency
-    var bitcoin: Currency
-    var etherium: Currency
-    var bist100: Currency
-    var other: Currency
+    var currencyId: UUID
+    var date: Date
+    var amount: Double
+}
+
+struct Price: Identifiable, Codable {
+    var id = UUID()
+    var currencyId: UUID
+    var date: Date
+    var price: Double
 }
 
 class DataManager {
-    private let keyName = "Currencies"
+    private let currencyKeyName = "Currency"
+    private let dataKeyName = "Data"
+    private let priceKeyName = "Price"
 
-    func save(data: [AssetData]) {
-        if let encoded = try? JSONEncoder().encode(data) {
-            UserDefaults.standard.set(encoded, forKey: keyName)
+    func save(currencies: [Currency], datas: [DataEntry], prices: [Price]) {
+        if let encoded = try? JSONEncoder().encode(currencies) {
+            UserDefaults.standard.set(encoded, forKey: currencyKeyName)
         }
+        
+        if let encoded = try? JSONEncoder().encode(datas) {
+            UserDefaults.standard.set(encoded, forKey: dataKeyName)
+        }
+        
+        if let encoded = try? JSONEncoder().encode(prices) {
+            UserDefaults.standard.set(encoded, forKey: priceKeyName)
+        }
+        
     }
 
-    func load() -> [AssetData] {
-        if let data = UserDefaults.standard.data(forKey: keyName),
-           let decodedData = try? JSONDecoder().decode([AssetData].self, from: data) {
-            return decodedData
+    func load() -> ([Currency], [DataEntry], [Price]) {
+        var currencies: [Currency] = []
+        var datas: [DataEntry] = []
+        var prices: [Price] = []
+        
+        if let currencyData = UserDefaults.standard.data(forKey: currencyKeyName),
+           let decodedCurrencies = try? JSONDecoder().decode([Currency].self, from: currencyData) {
+            currencies = decodedCurrencies
         }
-        return []
+        
+        if let dataData = UserDefaults.standard.data(forKey: dataKeyName),
+           let decodedDatas = try? JSONDecoder().decode([DataEntry].self, from: dataData) {
+            datas = decodedDatas
+        }
+        
+        if let priceData = UserDefaults.standard.data(forKey: priceKeyName),
+           let decodedPrices = try? JSONDecoder().decode([Price].self, from: priceData) {
+            prices = decodedPrices
+        }
+        
+        return (currencies, datas, prices)
     }
 }
 
 @MainActor
 class Database: ObservableObject {
-    
-    @Published var datas: [AssetData]
+    @Published var currencies: [Currency]
+    @Published var datas: [DataEntry]
+    @Published var prices: [Price]
     
     init() {
         let dataManager = DataManager()
-        datas = dataManager.load()
+        (currencies, datas, prices) = dataManager.load()
     }
     
     func save() {
         let dataManager = DataManager()
-        dataManager.save(data: datas)
+        dataManager.save(currencies: currencies, datas: datas, prices: prices)
     }
 }
