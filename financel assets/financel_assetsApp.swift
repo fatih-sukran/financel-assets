@@ -11,7 +11,10 @@ import SwiftUI
 struct financel_assetsApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-        }
+               VStack() {
+                   AssetsView2()
+                   SwiftUIView()
+               }
+           }
     }
 }

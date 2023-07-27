@@ -17,6 +17,9 @@
 		69C9FA222A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
 		69C9FA232A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
 		69C9FA242A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
+		69C9FA272A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
+		69C9FA282A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
+		69C9FA292A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,7 @@
 		69C9FA122A714E4F005C0859 /* financel_assetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITests.swift; sourceTree = "<group>"; };
 		69C9FA142A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		69C9FA212A71577D005C0859 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		69C9FA262A727970005C0859 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				69C9F9FA2A714E4E005C0859 /* Assets.xcassets */,
 				69C9F9FC2A714E4E005C0859 /* financel_assets.entitlements */,
 				69C9F9FD2A714E4E005C0859 /* Preview Content */,
+				69C9FA262A727970005C0859 /* Database.swift */,
 			);
 			path = "financel assets";
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			files = (
 				69C9F9F92A714E4E005C0859 /* AssetView.swift in Sources */,
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,
+				69C9FA272A727970005C0859 /* Database.swift in Sources */,
 				69C9FA222A71577D005C0859 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C9FA282A727970005C0859 /* Database.swift in Sources */,
 				69C9FA232A71577D005C0859 /* SwiftUIView.swift in Sources */,
 				69C9FA092A714E4F005C0859 /* financel_assetsTests.swift in Sources */,
 			);
@@ -285,6 +292,7 @@
 			files = (
 				69C9FA132A714E4F005C0859 /* financel_assetsUITests.swift in Sources */,
 				69C9FA152A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift in Sources */,
+				69C9FA292A727970005C0859 /* Database.swift in Sources */,
 				69C9FA242A71577D005C0859 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
