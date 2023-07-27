@@ -11,16 +11,25 @@ import SwiftUI
 struct financel_assetsApp: App {
     var body: some Scene {
         WindowGroup {
-               VStack() {
-                   AssetsView2()
-                   SwiftUIView()
-                   var items = [
-                       TodoItem(title: "abc"),
-                       TodoItem(title: "def"),
-                       TodoItem(title: "ghi")
-                   ]
-                   CurrencyFormView(viewModel: CurrencyFormViewModel(items: items))
-               }
+            TabView() {
+                    AssetsView2()
+                        .tabItem {
+                            Label("Menu", systemImage: "list.dash")
+                        }
+                    SwiftUIView()
+                    .tabItem {
+                        Label("Menu", systemImage: "list.dash")
+                    }
+                    var items = [
+                        TodoItem(title: "abc"),
+                        TodoItem(title: "def"),
+                        TodoItem(title: "ghi")
+                    ]
+                    CurrencyFormView(viewModel: CurrencyFormViewModel(items: items))
+                    .tabItem {
+                        Label("Menu", systemImage: "list.dash")
+                    }
+            }
            }
     }
 }
