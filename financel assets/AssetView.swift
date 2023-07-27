@@ -31,7 +31,7 @@ struct SwiftUIView: View {
             }
             Button("ADD 100 Dolar") {
                 var database = Database()
-                for c in database.currencyData {
+                for c in database.datas {
                     print ("name: \(c.name) - amount: \(c.amount)")
                 }
                 
