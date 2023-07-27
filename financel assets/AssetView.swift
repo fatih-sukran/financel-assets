@@ -19,6 +19,7 @@ let assets = [tl, dolar, altın, bitcoin, etherium]
 struct SwiftUIView: View {
     var body: some View {
     
+    
         VStack() {
             Table(assets) {
                 TableColumn("Asset", value: \.name)
