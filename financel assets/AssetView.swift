@@ -8,35 +8,32 @@
 import SwiftUI
 import Foundation
 
-let tl = Currency(id: UUID(), name: "TL", price: 27.1, amount: 0, symbol: "₺")
-let dolar = Currency(id: UUID(), name: "Dolar", price: 1,amount: 1000, symbol: "$")
-let altın = Currency(id: UUID(), name: "Altın", price: 1950, amount: 0, symbol: "ALT")
-let bitcoin = Currency(id: UUID(), name: "Bitcoin", price: 29800, amount: 0.067, symbol: "BTC")
-let etherium = Currency(id: UUID(), name: "Etherium", price: 1890, amount: 0.095, symbol: "ETH")
+let tl = Currency(id: UUID(), name: "TL", symbol: "₺")
+let dolar = Currency(id: UUID(), name: "Dolar", symbol: "$")
+let altın = Currency(id: UUID(), name: "Altın", symbol: "ALT")
+let bitcoin = Currency(id: UUID(), name: "Bitcoin",  symbol: "BTC")
+let etherium = Currency(id: UUID(), name: "Etherium", symbol: "ETH")
 
 let assets = [tl, dolar, altın, bitcoin, etherium]
- 
-  //testing 
+
 struct SwiftUIView: View {
     var body: some View {
-    
-    
         VStack() {
             Table(assets) {
                 TableColumn("Asset", value: \.name)
                 TableColumn("Price") { asset in
-                    Text("\(asset.price)") // Convert Double to String explicitly
+                    Text("(asset.price)") // Convert Double to String explicitly
                 }
                 TableColumn("Amount") { asset in
-                    Text("\(asset.amount)") // Convert Double to String explicitly
+                    Text("(asset.amount)") // Convert Double to String explicitly
                 }
             }
             Button("ADD 100 Dolar") {
                 var database = Database()
                 for c in database.datas {
-                    print ("name: \(c.name) - amount: \(c.amount)")
+                    print ("name: (c.name) - amount: (c.amount)")
                 }
-                
+
                 database.save()
             }
         }
@@ -45,10 +42,10 @@ struct SwiftUIView: View {
 
 
 struct AssetView: View {
-    
+
     @State var assetName: String
     @State var assetValue: Double
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Capsule()
@@ -66,7 +63,7 @@ struct AssetView: View {
                             .font(.largeTitle)
                     }
                 )
-                
+
         }
         .padding()
     }
@@ -90,44 +87,44 @@ struct AssetsView2: View {
                     }
                 }
         ).cornerRadius(41)
-        
+
     }
-    
+
     func calculateTotalTL() -> Double {
         var total = 0.0
-        
+
         for asset in assets {
             if (asset.name == "TL") {
-                total += asset.amount
+                total += 5
             } else if (asset.name == "Altın") {
-                total += tl.price * asset.price * asset.amount / 28.3495231
+                total += 5.0
             } else {
-                total += tl.price * asset.price * asset.amount
+                total += 5
             }
         }
-        
+
         return total
     }
-    
+
     func calculateTotalDolar() -> Double {
         var total = 0.0
-        
+
         for asset in assets {
             if (asset.name == "TL") {
-                total += asset.price / tl.price
+                total += 5
             } else if (asset.name == "Altın") {
-                total += asset.price * asset.amount / 28.3495231
+                total += 5
             } else {
-                total += asset.price * asset.amount
+                total += 5
             }
         }
-        
+
         return total
     }
-    
+
     func calculateTotalAltın() -> Double {
         var total = 0.0
-        
+
 //        for asset in assets {
 //            if (asset.name == "TL") {
 //                total += asset.amount / asset.price

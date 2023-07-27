@@ -14,6 +14,12 @@ struct financel_assetsApp: App {
                VStack() {
                    AssetsView2()
                    SwiftUIView()
+                   var items = [
+                       TodoItem(title: "abc"),
+                       TodoItem(title: "def"),
+                       TodoItem(title: "ghi")
+                   ]
+                   CurrencyFormView(viewModel: CurrencyFormViewModel(items: items))
                }
            }
     }
