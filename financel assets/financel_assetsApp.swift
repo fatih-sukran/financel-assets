@@ -12,6 +12,10 @@ struct financel_assetsApp: App {
     var body: some Scene {
         WindowGroup {
             TabView() {
+                CurrencyFormView()
+                .tabItem {
+                    Label("Menu", systemImage: "list.dash")
+                }
                     AssetsView2()
                         .tabItem {
                             Label("Menu", systemImage: "list.dash")
@@ -22,13 +26,7 @@ struct financel_assetsApp: App {
                         Label("Menu", systemImage: "list.dash")
                     }
                 
-                    VStack {
-                        CurrencyFormView()
-                        AddCurrencyFormView()
-                    }
-                    .tabItem {
-                        Label("Menu", systemImage: "list.dash")
-                    }
+                    
             }
            }
     }

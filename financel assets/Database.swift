@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 struct Currency: Identifiable, Codable {
     var id = UUID()

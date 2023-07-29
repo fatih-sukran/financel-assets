@@ -14,9 +14,6 @@
 		69C9FA092A714E4F005C0859 /* financel_assetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA082A714E4F005C0859 /* financel_assetsTests.swift */; };
 		69C9FA132A714E4F005C0859 /* financel_assetsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA122A714E4F005C0859 /* financel_assetsUITests.swift */; };
 		69C9FA152A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA142A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift */; };
-		69C9FA222A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
-		69C9FA232A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
-		69C9FA242A71577D005C0859 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA212A71577D005C0859 /* SwiftUIView.swift */; };
 		69C9FA272A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
 		69C9FA282A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
 		69C9FA292A727970005C0859 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA262A727970005C0859 /* Database.swift */; };
@@ -54,7 +51,6 @@
 		69C9FA0E2A714E4F005C0859 /* financel assetsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "financel assetsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C9FA122A714E4F005C0859 /* financel_assetsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITests.swift; sourceTree = "<group>"; };
 		69C9FA142A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		69C9FA212A71577D005C0859 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		69C9FA262A727970005C0859 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +103,6 @@
 		69C9F9F52A714E4E005C0859 /* financel assets */ = {
 			isa = PBXGroup;
 			children = (
-				69C9FA212A71577D005C0859 /* SwiftUIView.swift */,
 				69C9F9F62A714E4E005C0859 /* financel_assetsApp.swift */,
 				69C9F9F82A714E4E005C0859 /* AssetView.swift */,
 				69C9F9FA2A714E4E005C0859 /* Assets.xcassets */,
@@ -278,7 +273,6 @@
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,
 				69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
 				69C9FA272A727970005C0859 /* Database.swift in Sources */,
-				69C9FA222A71577D005C0859 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +281,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C9FA282A727970005C0859 /* Database.swift in Sources */,
-				69C9FA232A71577D005C0859 /* SwiftUIView.swift in Sources */,
 				69C9FA092A714E4F005C0859 /* financel_assetsTests.swift in Sources */,
 				69C9FA2C2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
 			);
@@ -301,7 +294,6 @@
 				69C9FA152A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift in Sources */,
 				69C9FA2D2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
 				69C9FA292A727970005C0859 /* Database.swift in Sources */,
-				69C9FA242A71577D005C0859 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
