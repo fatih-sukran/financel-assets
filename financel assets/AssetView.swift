@@ -29,12 +29,12 @@ struct SwiftUIView: View {
                 }
             }
             Button("ADD 100 Dolar") {
-                var database = Database()
-                for c in database.datas {
-                    print ("name: (c.name) - amount: (c.amount)")
-                }
-
-                database.save()
+//                var database = Database()
+//                for c in database.datas {
+//                    print ("name: (c.name) - amount: (c.amount)")
+//                }
+//
+//                database.save()
             }
         }
     }
@@ -123,7 +123,7 @@ struct AssetsView2: View {
     }
 
     func calculateTotalAltın() -> Double {
-        var total = 0.0
+        let total = 0.0
 
 //        for asset in assets {
 //            if (asset.name == "TL") {

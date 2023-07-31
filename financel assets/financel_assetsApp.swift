@@ -12,21 +12,20 @@ struct financel_assetsApp: App {
     var body: some Scene {
         WindowGroup {
             TabView() {
-                CurrencyFormView()
-                .tabItem {
-                    Label("Menu", systemImage: "list.dash")
-                }
-                    AssetsView2()
-                        .tabItem {
-                            Label("Menu", systemImage: "list.dash")
-                        }
-                
-                    SwiftUIView()
+                ViewCurriencies()
+                    .tabItem {
+                        Label("Currencies", systemImage: "list.dash")
+                    }
+                AssetsView2()
                     .tabItem {
                         Label("Menu", systemImage: "list.dash")
                     }
-                
-                    
+                SwiftUIView()
+                    .tabItem {
+                        Label("Menu", systemImage: "list.dash")
+                    }
+
+
             }
            }
     }

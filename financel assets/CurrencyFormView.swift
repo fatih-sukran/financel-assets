@@ -1,60 +1,21 @@
 import SwiftUI
 
 struct CurrencyFormView: View {
-    @StateObject private var db = Database()
-    @State private var showAddView = false
-
-    var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    ForEach(0..<db.currencies.count) { i in
-                        Text(db.currencies[i].name)
-                            .swipeActions(allowsFullSwipe: false) {
-                            
-                                Button(role: .destructive, action: {
-                                    db.currencies.remove(at: i)
-                                    db.save()
-                                }, label: {
-                                Label("Add Currency", systemImage: "trash")
-                            })
-    //                        .tint(.accentColor)
-                            Button(action: {
-                                showAddView.toggle()
-                            }, label: {
-                                Label("Add Currency", systemImage: "pencil")
-                                    .bold()
-                            })
-                            .tint(.accentColor)
-                        }
-                    }
-//                    .onDelete(perform: delete)
-                    
-                }
-            }
-            .navigationTitle("Currency Form")
-            .toolbar {
-                Button(action: {
-                    showAddView.toggle()
-                }, label: {
-                    Label("Add Currency", systemImage: "plus")
-                })
-            }
-            .sheet(isPresented: $showAddView) {
-                AddCurrencyFormView(db: db)
-                    .presentationDetents([.medium])
-            }
-        }
+    @State var id: UUID?
+    @State var name: String
+    @State var symbol: String
+    
+    private var formName: String = ""
+    @ObservedObject private var dataManager = Database.shared.currencies
+    @Environment(\.presentationMode) private var presentationMode
+    
+    init(uuid: UUID? = nil, name: String = "", symbol: String = "") {
+        self._id = State(initialValue: uuid)
+        self._name = State(initialValue: name)
+        self._symbol = State(initialValue: symbol)
+        formName = name.isEmpty ? "Add" : "Update"
     }
-}
 
-struct AddCurrencyFormView: View {
-    @StateObject var db: Database
-    
-    @State private var name: String = ""
-    @State private var symbol: String = ""
-    
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -62,29 +23,57 @@ struct AddCurrencyFormView: View {
                     TextField("Currency Name", text: $name)
                     TextField("Currency Symbol", text: $symbol)
                 }
-                
+
                 Section {
-                    Button("Add") {
-                        let currency = Currency(name: name, symbol: symbol)
-                        db.currencies.append(currency)
-                        db.save()
-                        
-                        name = ""
-                        symbol = ""
+                    Button("\(formName) Currency") {
+                        onSave()
                     }
+                    .disabled(name.isEmpty || symbol.isEmpty)
                 }
             }
-            .navigationTitle("Add New Currency")
+            .navigationBarTitle("\(formName) Currency")
         }
+    }
+    
+    private func onSave() {
+        var currency: Currency
+        
+        if id == nil {
+            currency = Currency(name: name, symbol: symbol)
+            dataManager.add(currency)
+        } else {
+            currency = Currency(id: id!, name: name, symbol: symbol)
+            dataManager.update(currency)
+        }
+        
+        name = ""
+        symbol = ""
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
-
-
-struct CurrencyFormView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            CurrencyFormView()
+struct ViewCurriencies: View {
+    
+    @ObservedObject private var dataManager = Database.shared.currencies
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(dataManager.items) { currency in
+                    NavigationLink(destination: CurrencyFormView(uuid: currency.id, name: currency.name, symbol: currency.symbol)) {
+                        Text(currency.name)
+                        Text(currency.symbol)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .onDelete(perform: dataManager.delete)
+            }
+            .navigationBarTitle("Currency")
+            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView()) {
+                Image(systemName: "plus")
+            })
         }
     }
+    
+    
 }

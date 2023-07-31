@@ -1,7 +1,61 @@
 import Foundation
 import CoreData
 
-struct Currency: Identifiable, Codable {
+class IDataManager<Item: Codable & Equatable & Identifiable> : ObservableObject {
+
+    @Published var items : [Item] = []
+    
+    init() {
+        load()
+    }
+    
+    func load() {
+        if let data = UserDefaults.standard.data(forKey: "\(Item.self)") {
+            print("Item.self: \(Item.self)")
+            if let decodedData = try? JSONDecoder().decode([Item].self, from: data) {
+                items = decodedData
+                return
+            }
+        }
+    }
+    
+    func add(_ item: Item) {
+        items.append(item)
+        self.save()
+    }
+    
+    func delete(_ indexSet: IndexSet) {
+        items.remove(atOffsets: indexSet)
+        self.save()
+    }
+    
+    func delete(_ item: Item) {
+        if let index = items.firstIndex(of: item) {
+            items.remove(at: index)
+            self.save()
+        }
+    }
+    
+    func update(_ item: Item) {
+        if let index = items.firstIndex(where: {$0.id == item.id}) {
+            items[index] = item
+            self.save()
+        }
+    }
+    
+    func getAll() -> [Item] {
+        return items
+    }
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encoded, forKey: "\(Item.self)")
+        }
+    }
+    
+}
+
+struct Currency: Identifiable, Codable, Equatable {
     var id = UUID()
     var name: String
     var symbol: String
@@ -67,17 +121,9 @@ class DataManager {
 
 @MainActor
 class Database: ObservableObject {
-    @Published var currencies: [Currency] = []
-    @Published var datas: [DataEntry] = []
-    @Published var prices: [Price] = []
+    static let shared = Database()
     
-    init() {
-        let dataManager = DataManager()
-        (currencies, datas, prices) = dataManager.load()
-    }
-    
-    func save() {
-        let dataManager = DataManager()
-        dataManager.save(currencies: currencies, datas: datas, prices: prices)
-    }
+    @Published var currencies = IDataManager<Currency>()
+    @Published var datas = IDataManager<Currency>()
+    @Published var prices = IDataManager<Currency>()
 }

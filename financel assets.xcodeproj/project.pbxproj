@@ -103,13 +103,13 @@
 		69C9F9F52A714E4E005C0859 /* financel assets */ = {
 			isa = PBXGroup;
 			children = (
+				69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */,
 				69C9F9F62A714E4E005C0859 /* financel_assetsApp.swift */,
 				69C9F9F82A714E4E005C0859 /* AssetView.swift */,
 				69C9F9FA2A714E4E005C0859 /* Assets.xcassets */,
 				69C9F9FC2A714E4E005C0859 /* financel_assets.entitlements */,
 				69C9F9FD2A714E4E005C0859 /* Preview Content */,
 				69C9FA262A727970005C0859 /* Database.swift */,
-				69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */,
 			);
 			path = "financel assets";
 			sourceTree = "<group>";
