@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct financel_assetsApp: App {
+    
+    @StateObject var db = Database()
+    
     var body: some Scene {
         WindowGroup {
             TabView() {
@@ -16,17 +19,16 @@ struct financel_assetsApp: App {
                     .tabItem {
                         Label("Currencies", systemImage: "list.dash")
                     }
-                AssetsView2()
+                ViewPrices()
                     .tabItem {
-                        Label("Menu", systemImage: "list.dash")
+                        Label("Prices", systemImage: "list.dash")
                     }
                 SwiftUIView()
                     .tabItem {
                         Label("Menu", systemImage: "list.dash")
                     }
-
-
             }
-           }
+            .environmentObject(db)
+        }
     }
 }
