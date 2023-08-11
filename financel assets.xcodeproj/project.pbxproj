@@ -20,6 +20,9 @@
 		69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
 		69C9FA2C2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
 		69C9FA2D2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
+		69C9FA382A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
+		69C9FA392A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
+		69C9FA3A2A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 		69C9FA142A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		69C9FA262A727970005C0859 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormView.swift; sourceTree = "<group>"; };
+		69C9FA372A77E919005C0859 /* PriceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				69C9F9FC2A714E4E005C0859 /* financel_assets.entitlements */,
 				69C9F9FD2A714E4E005C0859 /* Preview Content */,
 				69C9FA262A727970005C0859 /* Database.swift */,
+				69C9FA372A77E919005C0859 /* PriceFormView.swift */,
 			);
 			path = "financel assets";
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C9FA382A77E919005C0859 /* PriceFormView.swift in Sources */,
 				69C9F9F92A714E4E005C0859 /* AssetView.swift in Sources */,
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,
 				69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
@@ -280,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C9FA392A77E919005C0859 /* PriceFormView.swift in Sources */,
 				69C9FA282A727970005C0859 /* Database.swift in Sources */,
 				69C9FA092A714E4F005C0859 /* financel_assetsTests.swift in Sources */,
 				69C9FA2C2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
@@ -290,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69C9FA3A2A77E919005C0859 /* PriceFormView.swift in Sources */,
 				69C9FA132A714E4F005C0859 /* financel_assetsUITests.swift in Sources */,
 				69C9FA152A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift in Sources */,
 				69C9FA2D2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
