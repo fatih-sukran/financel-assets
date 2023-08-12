@@ -13,15 +13,20 @@ struct financel_assetsApp: App {
     @StateObject var db = Database()
     @StateObject var currencyViewModel = CurrencyViewModel()
     @StateObject var priceViewModel = PriceViewModel()
+    @StateObject var transactionViewModel = TransactionViewModel()
     
     var body: some Scene {
         WindowGroup {
             TabView() {
-                ViewCurriencies(viewModel: currencyViewModel)
+                TransactionView()
+                    .tabItem {
+                        Label("Transactions", systemImage: "list.dash")
+                    }
+                ViewCurriencies()
                     .tabItem {
                         Label("Currencies", systemImage: "list.dash")
                     }
-                PriceView(priceViewModel: priceViewModel, currencyViewModel: currencyViewModel)
+                PriceView()
                     .tabItem {
                         Label("Prices", systemImage: "list.dash")
                     }
@@ -30,7 +35,9 @@ struct financel_assetsApp: App {
                         Label("Menu", systemImage: "list.dash")
                     }
             }
-            .environmentObject(db)
+            .environmentObject(currencyViewModel)
+            .environmentObject(priceViewModel)
+            .environmentObject(transactionViewModel)
         }
     }
 }
