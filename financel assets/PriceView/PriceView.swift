@@ -7,20 +7,32 @@
 
 import SwiftUI
 
-struct PriceDTO {
-    var priceId: UUID
-    var currencyName: String = ""
-    var currencySymbol: String = ""
-    var date: Date
-    var price: Double
+struct PriceView: View {
     
-    init(_ priceStruct: Price) async {
-        priceId = priceStruct.id
-        date = priceStruct.date
-        price = priceStruct.price
-        if let currency = await Database.shared.currencies.getById(priceStruct.currencyId) {
-            currencyName = currency.name
-            currencySymbol = currency.symbol
+    @EnvironmentObject var priceViewModel: PriceViewModel
+    @EnvironmentObject var currencyViewModel: CurrencyViewModel
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                ForEach(priceViewModel.items) { price in
+                    NavigationLink(destination: PriceFormView(price)) {
+                        let currency = currencyViewModel.getById(price.currencyId)
+                        
+                        Text("\(currency?.name ?? "")")
+                            .foregroundColor(.accentColor)
+                        Text("\(price.date.formatted(date: .numeric, time: .shortened))")
+                        Spacer()
+                        Text("\(price.price, specifier: "%.2f")")
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .onDelete(perform: priceViewModel.delete)
+            }
+            .navigationBarTitle("Prices")
+            .navigationBarItems(trailing: NavigationLink(destination: PriceFormView()) {
+                Image(systemName: "plus")
+            })
         }
     }
 }
@@ -33,17 +45,15 @@ struct PriceFormView: View {
     @State private var selectionIndex = 0
 
     private var formName: String = ""
-    @ObservedObject private var priceViewModel: PriceViewModel
-    @ObservedObject private var currencyViewModel: CurrencyViewModel
+    @EnvironmentObject var priceViewModel: PriceViewModel
+    @EnvironmentObject var currencyViewModel: CurrencyViewModel
     @Environment(\.presentationMode) private var presentationMode
     
-    init(price: Price? = nil, priceViewModel: PriceViewModel, currencyViewModel: CurrencyViewModel) {
+    init(_ price: Price? = nil) {
         self._id = State(initialValue: price?.id)
         self._currencyId = State(initialValue: price?.currencyId)
         self._date = State(initialValue: price?.date ?? Date.now)
         self._price = State(initialValue: String(price?.price ?? 0))
-        self.priceViewModel = priceViewModel
-        self.currencyViewModel = currencyViewModel
 
         formName = price == nil ? "Add" : "Update"
     }
@@ -84,38 +94,6 @@ struct PriceFormView: View {
         }
         
         presentationMode.wrappedValue.dismiss()
-    }
-}
-
-struct PriceView: View {
-    
-    @ObservedObject var priceViewModel: PriceViewModel
-    @ObservedObject var currencyViewModel: CurrencyViewModel
-    
-    var body: some View {
-        NavigationStack {
-            List {
-                ForEach(priceViewModel.items) { price in
-                    NavigationLink(destination:PriceFormView(
-                        price: price,
-                        priceViewModel: priceViewModel,
-                        currencyViewModel: currencyViewModel)) {
-                        Text("\(price.date.formatted(date: .numeric, time: .shortened))")
-                            .foregroundColor(.accentColor)
-                        Text("\(price.currencyId)")
-                        Text("\(price.price)")
-                            .foregroundColor(.secondary)
-                    }
-                }
-                .onDelete(perform: priceViewModel.delete)
-            }
-            .navigationBarTitle("Prices")
-            .navigationBarItems(trailing: NavigationLink(destination: PriceFormView(
-                priceViewModel: priceViewModel,
-                currencyViewModel: currencyViewModel)) {
-                Image(systemName: "plus")
-            })
-        }
     }
 }
 
