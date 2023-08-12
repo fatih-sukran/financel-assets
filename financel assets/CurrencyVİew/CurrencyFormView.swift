@@ -6,14 +6,13 @@ struct CurrencyFormView: View {
     @State var symbol: String
     
     private var formName: String = ""
-    @ObservedObject var viewModel: CurrencyViewModel
+    @EnvironmentObject var viewModel: CurrencyViewModel
     @Environment(\.presentationMode) private var presentationMode
     
-    init(uuid: UUID? = nil, name: String = "", symbol: String = "", viewModel: CurrencyViewModel) {
+    init(uuid: UUID? = nil, name: String = "", symbol: String = "") {
         self._id = State(initialValue: uuid)
         self._name = State(initialValue: name)
         self._symbol = State(initialValue: symbol)
-        self.viewModel = viewModel
         formName = name.isEmpty ? "Add" : "Update"
     }
 
@@ -54,13 +53,13 @@ struct CurrencyFormView: View {
 }
 
 struct ViewCurriencies: View {
-    @ObservedObject var viewModel: CurrencyViewModel
+    @EnvironmentObject var viewModel: CurrencyViewModel
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(viewModel.items) { currency in
-                    NavigationLink(destination: CurrencyFormView(uuid: currency.id, name: currency.name, symbol: currency.symbol, viewModel: viewModel)) {
+                    NavigationLink(destination: CurrencyFormView(uuid: currency.id, name: currency.name, symbol: currency.symbol)) {
                         Text(currency.name)
                         Text(currency.symbol)
                             .foregroundColor(.secondary)
@@ -69,7 +68,7 @@ struct ViewCurriencies: View {
                 .onDelete(perform: viewModel.delete)
             }
             .navigationBarTitle("Currency")
-            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView(viewModel: viewModel)) {
+            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView()) {
                 Image(systemName: "plus")
             })
         }
