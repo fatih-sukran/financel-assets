@@ -6,13 +6,14 @@ struct CurrencyFormView: View {
     @State var symbol: String
     
     private var formName: String = ""
-    @ObservedObject private var dataManager = Database.shared.currencies
+    @ObservedObject var viewModel: CurrencyViewModel
     @Environment(\.presentationMode) private var presentationMode
     
-    init(uuid: UUID? = nil, name: String = "", symbol: String = "") {
+    init(uuid: UUID? = nil, name: String = "", symbol: String = "", viewModel: CurrencyViewModel) {
         self._id = State(initialValue: uuid)
         self._name = State(initialValue: name)
         self._symbol = State(initialValue: symbol)
+        self.viewModel = viewModel
         formName = name.isEmpty ? "Add" : "Update"
     }
 
@@ -40,10 +41,10 @@ struct CurrencyFormView: View {
         
         if id == nil {
             currency = Currency(name: name, symbol: symbol)
-            dataManager.add(currency)
+            viewModel.add(currency)
         } else {
             currency = Currency(id: id!, name: name, symbol: symbol)
-            dataManager.update(currency)
+            viewModel.update(currency)
         }
         
         name = ""
@@ -53,27 +54,24 @@ struct CurrencyFormView: View {
 }
 
 struct ViewCurriencies: View {
-    
-    @ObservedObject private var dataManager = Database.shared.currencies
+    @ObservedObject var viewModel: CurrencyViewModel
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(dataManager.items) { currency in
-                    NavigationLink(destination: CurrencyFormView(uuid: currency.id, name: currency.name, symbol: currency.symbol)) {
+                ForEach(viewModel.items) { currency in
+                    NavigationLink(destination: CurrencyFormView(uuid: currency.id, name: currency.name, symbol: currency.symbol, viewModel: viewModel)) {
                         Text(currency.name)
                         Text(currency.symbol)
                             .foregroundColor(.secondary)
                     }
                 }
-                .onDelete(perform: dataManager.delete)
+                .onDelete(perform: viewModel.delete)
             }
             .navigationBarTitle("Currency")
-            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView()) {
+            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView(viewModel: viewModel)) {
                 Image(systemName: "plus")
             })
         }
     }
-    
-    
 }

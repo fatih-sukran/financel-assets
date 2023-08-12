@@ -30,20 +30,20 @@ struct PriceFormView: View {
     @State var currencyId: UUID?
     @State var date: Date
     @State var price: String
-//    var priceDto: PriceDTO
     @State private var selectionIndex = 0
 
     private var formName: String = ""
-    @ObservedObject private var priceDataManager = Database.shared.prices
-    @ObservedObject private var currencyDataManager = Database.shared.currencies
+    @ObservedObject private var priceViewModel: PriceViewModel
+    @ObservedObject private var currencyViewModel: CurrencyViewModel
     @Environment(\.presentationMode) private var presentationMode
     
-    init(price: Price?) {
+    init(price: Price? = nil, priceViewModel: PriceViewModel, currencyViewModel: CurrencyViewModel) {
         self._id = State(initialValue: price?.id)
         self._currencyId = State(initialValue: price?.currencyId)
         self._date = State(initialValue: price?.date ?? Date.now)
         self._price = State(initialValue: String(price?.price ?? 0))
-//        self._priceDto = PriceDTO(Price(id: UUID(), currencyId: UUID(), date: Date.now, price: 0.0))
+        self.priceViewModel = priceViewModel
+        self.currencyViewModel = currencyViewModel
 
         formName = price == nil ? "Add" : "Update"
     }
@@ -53,8 +53,8 @@ struct PriceFormView: View {
             Form {
                 Section {
                     Picker("Currency", selection: $selectionIndex) {
-                        ForEach(currencyDataManager.items.indices) { index in
-                            Text(currencyDataManager.items[index].name)
+                        ForEach(currencyViewModel.items.indices) { index in
+                            Text(currencyViewModel.items[index].name)
                         }
                     }
                     DatePicker("Date", selection: $date)
@@ -76,27 +76,30 @@ struct PriceFormView: View {
         var price: Price
         
         if id == nil {
-            price = Price(currencyId: currencyDataManager.items[selectionIndex].id, date: date, price: Double(self.price) ?? 0)
-            priceDataManager.add(price)
+            price = Price(currencyId: currencyViewModel.items[selectionIndex].id, date: date, price: Double(self.price) ?? 0)
+            priceViewModel.add(price)
         } else {
-            price = Price(id: id!, currencyId: currencyDataManager.items[selectionIndex].id, date: date, price: Double(self.price) ?? 0)
-            priceDataManager.update(price)
+            price = Price(id: id!, currencyId: currencyViewModel.items[selectionIndex].id, date: date, price: Double(self.price) ?? 0)
+            priceViewModel.update(price)
         }
         
         presentationMode.wrappedValue.dismiss()
     }
 }
 
-struct ViewPrices: View {
+struct PriceView: View {
     
-    @ObservedObject private var dataManager = Database.shared.prices
-    @EnvironmentObject private var db: Database
+    @ObservedObject var priceViewModel: PriceViewModel
+    @ObservedObject var currencyViewModel: CurrencyViewModel
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(db.prices.items) { price in
-                    NavigationLink(destination: PriceFormView(price: price)) {
+                ForEach(priceViewModel.items) { price in
+                    NavigationLink(destination:PriceFormView(
+                        price: price,
+                        priceViewModel: priceViewModel,
+                        currencyViewModel: currencyViewModel)) {
                         Text("\(price.date.formatted(date: .numeric, time: .shortened))")
                             .foregroundColor(.accentColor)
                         Text("\(price.currencyId)")
@@ -104,18 +107,20 @@ struct ViewPrices: View {
                             .foregroundColor(.secondary)
                     }
                 }
-                .onDelete(perform: dataManager.delete)
+                .onDelete(perform: priceViewModel.delete)
             }
             .navigationBarTitle("Prices")
-            .navigationBarItems(trailing: NavigationLink(destination: PriceFormView(price: nil)) {
+            .navigationBarItems(trailing: NavigationLink(destination: PriceFormView(
+                priceViewModel: priceViewModel,
+                currencyViewModel: currencyViewModel)) {
                 Image(systemName: "plus")
             })
         }
     }
 }
 
-struct PriceFormView_Previews: PreviewProvider {
-    static var previews: some View {
-        ViewPrices()
-    }
-}
+//struct PriceFormView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ViewPrices()
+//    }
+//}

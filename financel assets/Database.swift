@@ -3,24 +3,11 @@ import Foundation
 
 typealias Model = Identifiable & Codable & Hashable
 
-struct Currency: Model {
-    var id = UUID()
-    var name: String
-    var symbol: String
-}
-
 struct DataEntry: Model {
     var id = UUID()
     var currencyId: UUID
     var date: Date
     var amount: Double
-}
-
-struct Price: Model {
-    var id = UUID()
-    var currencyId: UUID
-    var date: Date
-    var price: Double
 }
 
 class IDataManager<Item: Model> : ObservableObject {

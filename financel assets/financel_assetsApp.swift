@@ -11,15 +11,17 @@ import SwiftUI
 struct financel_assetsApp: App {
     
     @StateObject var db = Database()
+    @StateObject var currencyViewModel = CurrencyViewModel()
+    @StateObject var priceViewModel = PriceViewModel()
     
     var body: some Scene {
         WindowGroup {
             TabView() {
-                ViewCurriencies()
+                ViewCurriencies(viewModel: currencyViewModel)
                     .tabItem {
                         Label("Currencies", systemImage: "list.dash")
                     }
-                ViewPrices()
+                PriceView(priceViewModel: priceViewModel, currencyViewModel: currencyViewModel)
                     .tabItem {
                         Label("Prices", systemImage: "list.dash")
                     }

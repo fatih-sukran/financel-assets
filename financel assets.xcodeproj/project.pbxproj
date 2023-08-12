@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		694D9E7A2A87702000CB4A18 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E792A87702000CB4A18 /* CurrencyModel.swift */; };
+		694D9E7C2A87705F00CB4A18 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */; };
+		694D9E812A8786A900CB4A18 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E802A8786A900CB4A18 /* PriceModel.swift */; };
+		694D9E832A8786C700CB4A18 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E822A8786C700CB4A18 /* PriceViewModel.swift */; };
 		69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9F9F62A714E4E005C0859 /* financel_assetsApp.swift */; };
 		69C9F9F92A714E4E005C0859 /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9F9F82A714E4E005C0859 /* AssetView.swift */; };
 		69C9F9FB2A714E4E005C0859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69C9F9FA2A714E4E005C0859 /* Assets.xcassets */; };
@@ -20,9 +24,9 @@
 		69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
 		69C9FA2C2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
 		69C9FA2D2A72A985005C0859 /* CurrencyFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */; };
-		69C9FA382A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
-		69C9FA392A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
-		69C9FA3A2A77E919005C0859 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceFormView.swift */; };
+		69C9FA382A77E919005C0859 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceView.swift */; };
+		69C9FA392A77E919005C0859 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceView.swift */; };
+		69C9FA3A2A77E919005C0859 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9FA372A77E919005C0859 /* PriceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		694D9E792A87702000CB4A18 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		694D9E802A8786A900CB4A18 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
+		694D9E822A8786C700CB4A18 /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
 		69C9F9F32A714E4E005C0859 /* financel assets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "financel assets.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C9F9F62A714E4E005C0859 /* financel_assetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsApp.swift; sourceTree = "<group>"; };
 		69C9F9F82A714E4E005C0859 /* AssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetView.swift; sourceTree = "<group>"; };
@@ -56,7 +64,7 @@
 		69C9FA142A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = financel_assetsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		69C9FA262A727970005C0859 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormView.swift; sourceTree = "<group>"; };
-		69C9FA372A77E919005C0859 /* PriceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormView.swift; sourceTree = "<group>"; };
+		69C9FA372A77E919005C0859 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		694D9E782A876FEC00CB4A18 /* CurrencyVİew */ = {
+			isa = PBXGroup;
+			children = (
+				694D9E792A87702000CB4A18 /* CurrencyModel.swift */,
+				69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */,
+				694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */,
+			);
+			name = "CurrencyVİew";
+			path = "CurrencyVİew";
+			sourceTree = "<group>";
+		};
+		694D9E7F2A87863800CB4A18 /* PriceView */ = {
+			isa = PBXGroup;
+			children = (
+				694D9E802A8786A900CB4A18 /* PriceModel.swift */,
+				69C9FA372A77E919005C0859 /* PriceView.swift */,
+				694D9E822A8786C700CB4A18 /* PriceViewModel.swift */,
+			);
+			path = PriceView;
+			sourceTree = "<group>";
+		};
 		69C9F9EA2A714E4D005C0859 = {
 			isa = PBXGroup;
 			children = (
@@ -107,14 +136,14 @@
 		69C9F9F52A714E4E005C0859 /* financel assets */ = {
 			isa = PBXGroup;
 			children = (
-				69C9FA2A2A72A985005C0859 /* CurrencyFormView.swift */,
+				694D9E782A876FEC00CB4A18 /* CurrencyVİew */,
+				694D9E7F2A87863800CB4A18 /* PriceView */,
 				69C9F9F62A714E4E005C0859 /* financel_assetsApp.swift */,
 				69C9F9F82A714E4E005C0859 /* AssetView.swift */,
 				69C9F9FA2A714E4E005C0859 /* Assets.xcassets */,
 				69C9F9FC2A714E4E005C0859 /* financel_assets.entitlements */,
 				69C9F9FD2A714E4E005C0859 /* Preview Content */,
 				69C9FA262A727970005C0859 /* Database.swift */,
-				69C9FA372A77E919005C0859 /* PriceFormView.swift */,
 			);
 			path = "financel assets";
 			sourceTree = "<group>";
@@ -274,11 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C9FA382A77E919005C0859 /* PriceFormView.swift in Sources */,
+				694D9E7A2A87702000CB4A18 /* CurrencyModel.swift in Sources */,
+				69C9FA382A77E919005C0859 /* PriceView.swift in Sources */,
 				69C9F9F92A714E4E005C0859 /* AssetView.swift in Sources */,
+				694D9E7C2A87705F00CB4A18 /* CurrencyViewModel.swift in Sources */,
+				694D9E832A8786C700CB4A18 /* PriceViewModel.swift in Sources */,
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,
 				69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
 				69C9FA272A727970005C0859 /* Database.swift in Sources */,
+				694D9E812A8786A900CB4A18 /* PriceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C9FA392A77E919005C0859 /* PriceFormView.swift in Sources */,
+				69C9FA392A77E919005C0859 /* PriceView.swift in Sources */,
 				69C9FA282A727970005C0859 /* Database.swift in Sources */,
 				69C9FA092A714E4F005C0859 /* financel_assetsTests.swift in Sources */,
 				69C9FA2C2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
@@ -297,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C9FA3A2A77E919005C0859 /* PriceFormView.swift in Sources */,
+				69C9FA3A2A77E919005C0859 /* PriceView.swift in Sources */,
 				69C9FA132A714E4F005C0859 /* financel_assetsUITests.swift in Sources */,
 				69C9FA152A714E4F005C0859 /* financel_assetsUITestsLaunchTests.swift in Sources */,
 				69C9FA2D2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
