@@ -8,5 +8,5 @@
 import Foundation
 
 final class CurrencyViewModel: IDataManager<Currency> {
-    static var shared = CurrencyViewModel()
+    
 }

@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct financel_assetsApp: App {
     
-    @StateObject var db = Database()
     @StateObject var currencyViewModel = CurrencyViewModel()
     @StateObject var priceViewModel = PriceViewModel()
     @StateObject var transactionViewModel = TransactionViewModel()

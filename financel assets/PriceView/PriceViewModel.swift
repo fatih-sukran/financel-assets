@@ -8,6 +8,5 @@
 import Foundation
 
 final class PriceViewModel: IDataManager<Price> {
-    static let shared = PriceViewModel()
     
 }
