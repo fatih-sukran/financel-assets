@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6947444F2A89AAEF0012E410 /* TransactionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6947444E2A89AAEF0012E410 /* TransactionFormView.swift */; };
+		694744532A89ABE50012E410 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694744522A89ABE50012E410 /* PriceFormView.swift */; };
 		694D9E7A2A87702000CB4A18 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E792A87702000CB4A18 /* CurrencyModel.swift */; };
 		694D9E7C2A87705F00CB4A18 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */; };
 		694D9E812A8786A900CB4A18 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E802A8786A900CB4A18 /* PriceModel.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6947444E2A89AAEF0012E410 /* TransactionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormView.swift; sourceTree = "<group>"; };
+		694744522A89ABE50012E410 /* PriceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormView.swift; sourceTree = "<group>"; };
 		694D9E792A87702000CB4A18 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		694D9E802A8786A900CB4A18 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				694D9E802A8786A900CB4A18 /* PriceModel.swift */,
 				69C9FA372A77E919005C0859 /* PriceView.swift */,
 				694D9E822A8786C700CB4A18 /* PriceViewModel.swift */,
+				694744522A89ABE50012E410 /* PriceFormView.swift */,
 			);
 			path = PriceView;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				694D9E852A87929300CB4A18 /* Transaction.swift */,
 				694D9E892A87939D00CB4A18 /* TransactionView.swift */,
 				694D9E872A87937300CB4A18 /* TransactionViewModel.swift */,
+				6947444E2A89AAEF0012E410 /* TransactionFormView.swift */,
 			);
 			path = TransactionView;
 			sourceTree = "<group>";
@@ -328,7 +334,9 @@
 				694D9E8A2A87939D00CB4A18 /* TransactionView.swift in Sources */,
 				694D9E862A87929300CB4A18 /* Transaction.swift in Sources */,
 				694D9E832A8786C700CB4A18 /* PriceViewModel.swift in Sources */,
+				694744532A89ABE50012E410 /* PriceFormView.swift in Sources */,
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,
+				6947444F2A89AAEF0012E410 /* TransactionFormView.swift in Sources */,
 				69C9FA2B2A72A985005C0859 /* CurrencyFormView.swift in Sources */,
 				69C9FA272A727970005C0859 /* Database.swift in Sources */,
 				694D9E812A8786A900CB4A18 /* PriceModel.swift in Sources */,

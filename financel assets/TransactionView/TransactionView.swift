@@ -16,9 +16,8 @@ struct TransactionView: View {
         NavigationStack {
             List {
                 ForEach(transactionViewModel.items) {transaction in
-                    NavigationLink("aiea") {
+                    NavigationLink(destination: TransactionFormView(transaction)) {
                         var currency = getCurrency(transaction.currencyId)
-//                        var price = getPrice(transaction.priceId)
                         
                         Text("\(transaction.amount) \(currency.symbol)")
                             .foregroundColor(.accentColor)
@@ -27,10 +26,13 @@ struct TransactionView: View {
                 }
             }
             .navigationBarTitle("Transactions")
-//            .navigationBarItems(trailing: NavigationLink(destination: CurrencyFormView(viewModel: viewModel)) {
-//                Image(systemName: "plus")
-//            })
+            .navigationBarItems(trailing: NavigationLink(destination: TransactionFormView()) {
+                Image(systemName: "plus")
+            })
         }
+        .environmentObject(self.currencyViewModel)
+        .environmentObject(self.priceViewModel)
+        .environmentObject(self.transactionViewModel)
     }
     
     func getCurrency(_ id: UUID) -> Currency {
@@ -39,19 +41,6 @@ struct TransactionView: View {
     
     func getPrice(_ id: UUID) -> Price {
         return priceViewModel.getById(id).unsafelyUnwrapped
-    }
-}
-
-struct TransactionFormView: View {
-    
-    @StateObject var transactionViewModel: TransactionViewModel
-    @StateObject var currencyViewModel: CurrencyViewModel
-    @StateObject var priceViewModel: PriceViewModel
-    
-    @Environment(\.presentationMode) private var presentationMode
-
-    var body: some View {
-        Text("helale")
     }
 }
 
