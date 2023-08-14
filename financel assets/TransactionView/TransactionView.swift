@@ -30,9 +30,6 @@ struct TransactionView: View {
                 Image(systemName: "plus")
             })
         }
-        .environmentObject(self.currencyViewModel)
-        .environmentObject(self.priceViewModel)
-        .environmentObject(self.transactionViewModel)
     }
     
     func getCurrency(_ id: UUID) -> Currency {
