@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Dashboard: Model {
+    var id = UUID()
+    var currency: Currency
+    var price: Price
+    var amount: Double
+}
