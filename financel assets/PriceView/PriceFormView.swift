@@ -38,7 +38,7 @@ struct PriceFormView: View {
                             Text(currencyViewModel.items[index].name)
                         }
                     }
-                    DatePicker("Date", selection: $date)
+                    DatePicker("Date", selection: $date, displayedComponents: [.date])
                     TextField("Price", text: $price)
                         .keyboardType(.decimalPad)
                 }

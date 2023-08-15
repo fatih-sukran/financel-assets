@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6947444F2A89AAEF0012E410 /* TransactionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6947444E2A89AAEF0012E410 /* TransactionFormView.swift */; };
 		694744532A89ABE50012E410 /* PriceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694744522A89ABE50012E410 /* PriceFormView.swift */; };
+		694744562A8AC5610012E410 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694744552A8AC5610012E410 /* Dashboard.swift */; };
+		694744582A8AC56E0012E410 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694744572A8AC56E0012E410 /* DashboardView.swift */; };
+		6947445A2A8AC8AC0012E410 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694744592A8AC8AC0012E410 /* DashboardViewModel.swift */; };
 		694D9E7A2A87702000CB4A18 /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E792A87702000CB4A18 /* CurrencyModel.swift */; };
 		694D9E7C2A87705F00CB4A18 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */; };
 		694D9E812A8786A900CB4A18 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694D9E802A8786A900CB4A18 /* PriceModel.swift */; };
@@ -54,6 +57,9 @@
 /* Begin PBXFileReference section */
 		6947444E2A89AAEF0012E410 /* TransactionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormView.swift; sourceTree = "<group>"; };
 		694744522A89ABE50012E410 /* PriceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormView.swift; sourceTree = "<group>"; };
+		694744552A8AC5610012E410 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		694744572A8AC56E0012E410 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		694744592A8AC8AC0012E410 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		694D9E792A87702000CB4A18 /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		694D9E7B2A87705F00CB4A18 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		694D9E802A8786A900CB4A18 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
@@ -102,6 +108,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		694744542A8AC5380012E410 /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				694744552A8AC5610012E410 /* Dashboard.swift */,
+				694744572A8AC56E0012E410 /* DashboardView.swift */,
+				694744592A8AC8AC0012E410 /* DashboardViewModel.swift */,
+			);
+			path = DashboardView;
+			sourceTree = "<group>";
+		};
 		694D9E782A876FEC00CB4A18 /* CurrencyVİew */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +134,8 @@
 			children = (
 				694D9E802A8786A900CB4A18 /* PriceModel.swift */,
 				69C9FA372A77E919005C0859 /* PriceView.swift */,
-				694D9E822A8786C700CB4A18 /* PriceViewModel.swift */,
 				694744522A89ABE50012E410 /* PriceFormView.swift */,
+				694D9E822A8786C700CB4A18 /* PriceViewModel.swift */,
 			);
 			path = PriceView;
 			sourceTree = "<group>";
@@ -129,8 +145,8 @@
 			children = (
 				694D9E852A87929300CB4A18 /* Transaction.swift */,
 				694D9E892A87939D00CB4A18 /* TransactionView.swift */,
-				694D9E872A87937300CB4A18 /* TransactionViewModel.swift */,
 				6947444E2A89AAEF0012E410 /* TransactionFormView.swift */,
+				694D9E872A87937300CB4A18 /* TransactionViewModel.swift */,
 			);
 			path = TransactionView;
 			sourceTree = "<group>";
@@ -162,6 +178,7 @@
 				694D9E782A876FEC00CB4A18 /* CurrencyVİew */,
 				694D9E7F2A87863800CB4A18 /* PriceView */,
 				694D9E842A87927B00CB4A18 /* TransactionView */,
+				694744542A8AC5380012E410 /* DashboardView */,
 				69C9FA262A727970005C0859 /* Database.swift */,
 				69C9F9F82A714E4E005C0859 /* AssetView.swift */,
 				69C9F9FA2A714E4E005C0859 /* Assets.xcassets */,
@@ -327,12 +344,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				694D9E7A2A87702000CB4A18 /* CurrencyModel.swift in Sources */,
+				694744582A8AC56E0012E410 /* DashboardView.swift in Sources */,
 				69C9FA382A77E919005C0859 /* PriceView.swift in Sources */,
 				69C9F9F92A714E4E005C0859 /* AssetView.swift in Sources */,
 				694D9E7C2A87705F00CB4A18 /* CurrencyViewModel.swift in Sources */,
 				694D9E882A87937300CB4A18 /* TransactionViewModel.swift in Sources */,
 				694D9E8A2A87939D00CB4A18 /* TransactionView.swift in Sources */,
 				694D9E862A87929300CB4A18 /* Transaction.swift in Sources */,
+				6947445A2A8AC8AC0012E410 /* DashboardViewModel.swift in Sources */,
+				694744562A8AC5610012E410 /* Dashboard.swift in Sources */,
 				694D9E832A8786C700CB4A18 /* PriceViewModel.swift in Sources */,
 				694744532A89ABE50012E410 /* PriceFormView.swift in Sources */,
 				69C9F9F72A714E4E005C0859 /* financel_assetsApp.swift in Sources */,

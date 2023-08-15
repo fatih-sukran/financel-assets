@@ -11,17 +11,31 @@ struct PriceView: View {
     
     @EnvironmentObject var priceViewModel: PriceViewModel
     @EnvironmentObject var currencyViewModel: CurrencyViewModel
+    @State private var selectionFilter = "All"
+    @State private var items: [Price]?
     
     var body: some View {
         NavigationStack {
+            Picker("Filter", selection: $selectionFilter) {
+                Text("All").tag("All")
+                ForEach(currencyViewModel.items) { currency in
+                    Text(currency.name).tag(currency.id.uuidString)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            .onChange(of: selectionFilter) { newValue in
+                filter()
+            }
+            
             List {
-                ForEach(priceViewModel.items) { price in
+                ForEach(items ?? priceViewModel.items) { price in
                     NavigationLink(destination: PriceFormView(price)) {
                         let currency = currencyViewModel.getById(price.currencyId)
                         
                         Text("\(currency?.name ?? "")")
                             .foregroundColor(.accentColor)
-                        Text("\(price.date.formatted(date: .numeric, time: .shortened))")
+                        Text("\(price.date.formatted(date: .numeric, time: .omitted))")
                         Spacer()
                         Text("\(price.price, specifier: "%.2f")")
                             .foregroundColor(.secondary)
@@ -33,6 +47,17 @@ struct PriceView: View {
             .navigationBarItems(trailing: NavigationLink(destination: PriceFormView()) {
                 Image(systemName: "plus")
             })
+        }
+    }
+    
+    private func filter() {
+        if selectionFilter == "All" {
+            items = nil
+            priceViewModel.items.sort(by: {$0.date > $1.date})
+            priceViewModel.save()
+        } else {
+            items = priceViewModel.items.filter { $0.currencyId.uuidString == selectionFilter }
+            items!.sort(by: {$0.date > $1.date})
         }
     }
 }

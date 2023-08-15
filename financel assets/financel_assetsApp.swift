@@ -13,10 +13,15 @@ struct financel_assetsApp: App {
     @StateObject var currencyViewModel = CurrencyViewModel()
     @StateObject var priceViewModel = PriceViewModel()
     @StateObject var transactionViewModel = TransactionViewModel()
+    @StateObject var dashboardViewModel = DashboardViewModel()
     
     var body: some Scene {
         WindowGroup {
             TabView() {
+                DashboardView()
+                    .tabItem {
+                        Label("Menu", systemImage: "list.dash")
+                    }
                 TransactionView()
                     .tabItem {
                         Label("Transactions", systemImage: "list.dash")
@@ -29,14 +34,12 @@ struct financel_assetsApp: App {
                     .tabItem {
                         Label("Prices", systemImage: "list.dash")
                     }
-                SwiftUIView()
-                    .tabItem {
-                        Label("Menu", systemImage: "list.dash")
-                    }
+   
             }
             .environmentObject(currencyViewModel)
             .environmentObject(priceViewModel)
             .environmentObject(transactionViewModel)
+            .environmentObject(dashboardViewModel)
         }
     }
 }

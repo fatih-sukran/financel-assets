@@ -17,11 +17,12 @@ struct TransactionView: View {
             List {
                 ForEach(transactionViewModel.items) {transaction in
                     NavigationLink(destination: TransactionFormView(transaction)) {
-                        var currency = getCurrency(transaction.currencyId)
-                        
-                        Text("\(transaction.amount) \(currency.symbol)")
-                            .foregroundColor(.accentColor)
-                        Text("\(transaction.date)")
+                        let currency = getCurrency(transaction.currencyId)
+                        HStack(alignment: .lastTextBaseline) {
+                            Text("\(transaction.date.formatted(date: .numeric, time: .omitted))")
+                            Text("\(transaction.amount) \(currency.symbol)")
+                                .foregroundColor(.accentColor)
+                        }
                     }
                 }
             }
