@@ -3,13 +3,6 @@ import Foundation
 
 typealias Model = Identifiable & Codable & Hashable
 
-struct DataEntry: Model {
-    var id = UUID()
-    var currencyId: UUID
-    var date: Date
-    var amount: Double
-}
-
 class IDataManager<Item: Model> : ObservableObject {
 
     @Published var items : [Item] = []
@@ -66,13 +59,4 @@ class IDataManager<Item: Model> : ObservableObject {
         }
     }
     
-}
-
-@MainActor
-class Database: ObservableObject {
-    static let shared = Database()
-    
-    @Published var currencies = IDataManager<Currency>()
-    @Published var dataEntries = IDataManager<DataEntry>()
-    @Published var prices = IDataManager<Price>()
 }
