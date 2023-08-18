@@ -20,7 +20,8 @@ struct TransactionView: View {
                         let currency = getCurrency(transaction.currencyId)
                         HStack(alignment: .lastTextBaseline) {
                             Text("\(transaction.date.formatted(date: .numeric, time: .omitted))")
-                            Text("\(transaction.amount) \(currency.symbol)")
+                            let specifier =  "%.\(currency.digit)f"
+                            Text("\(transaction.amount, specifier: specifier) \(currency.symbol)")
                                 .foregroundColor(.accentColor)
                         }
                     }

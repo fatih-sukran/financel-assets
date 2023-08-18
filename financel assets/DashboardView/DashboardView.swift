@@ -19,7 +19,8 @@ struct DashboardView: View {
                 ForEach(dashboardViewModel.assets, id: \.self) { dashboard in
                     HStack{
                         Text(dashboard.currency.name)
-                        Text("\(dashboard.amount)")
+                        let specifier = "%.\(dashboard.currency.digit)f"
+                        Text("\(dashboard.amount, specifier: specifier)")
                     }
                 }
             }

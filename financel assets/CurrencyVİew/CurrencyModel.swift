@@ -9,6 +9,7 @@ import Foundation
 
 struct Currency: Model {
     var id = UUID()
+    var digit = 2
     var name: String
     var symbol: String
 }

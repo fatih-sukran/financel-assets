@@ -4,6 +4,7 @@ struct CurrencyFormView: View {
     @State var id: UUID?
     @State var name: String
     @State var symbol: String
+    @State var digit = "2"
     
     private var formName: String = ""
     @EnvironmentObject var viewModel: CurrencyViewModel
@@ -22,6 +23,7 @@ struct CurrencyFormView: View {
                 Section {
                     TextField("Currency Name", text: $name)
                     TextField("Currency Symbol", text: $symbol)
+                    TextField("Digit", text: $digit)
                 }
 
                 Section {
@@ -39,10 +41,10 @@ struct CurrencyFormView: View {
         var currency: Currency
         
         if id == nil {
-            currency = Currency(name: name, symbol: symbol)
+            currency = Currency(digit: Int(digit)!, name: name, symbol: symbol)
             viewModel.add(currency)
         } else {
-            currency = Currency(id: id!, name: name, symbol: symbol)
+            currency = Currency(id: id!, digit: Int(digit)!, name: name, symbol: symbol)
             viewModel.update(currency)
         }
         
