@@ -14,6 +14,7 @@ struct financel_assetsApp: App {
     @StateObject var priceViewModel = PriceViewModel()
     @StateObject var transactionViewModel = TransactionViewModel()
     @StateObject var dashboardViewModel = DashboardViewModel()
+    @StateObject var priceViewModel2 = PriceViewModel2()
     
     var body: some Scene {
         WindowGroup {
@@ -40,6 +41,7 @@ struct financel_assetsApp: App {
             .environmentObject(priceViewModel)
             .environmentObject(transactionViewModel)
             .environmentObject(dashboardViewModel)
+            .environmentObject(priceViewModel2)
         }
     }
 }
